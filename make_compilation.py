@@ -56,10 +56,22 @@ def makeCompilation(path = "./",
             clip = clip.resize(height=1080)
             duration = clip.duration
             print(duration)
+            
+            # Commit
             if duration <= maxClipLength and duration >= minClipLength:
                 allVideos.append(clip)
                 seenLengths[duration].append(fileName)
                 totalLength += duration
+            else:
+                ignore_error = input("Do You want to ignore errors on max & min Clip Length (Y/n):")
+                if ignore_error == "n":
+                    print("Stopping Script Due to errors")
+                    Break
+                else:
+                    print("Continue with errors. RegardLess of Clip Length")
+                    allVideos.append(clip)
+                    seenLengths[duration].append(fileName)
+                    totalLength += duration
     
     print("Total Length: " + str(totalLength))
 
