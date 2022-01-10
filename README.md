@@ -19,7 +19,7 @@ Download your OATH file and name it as "googleAPI.json" in your project folder.
 
 7. Open config.py in a text editor and fill in instagram credentials
 
-- Note that you can edit variables inside main.py in a text editor and things such as MAX_CLIP_LENGTH.
+- Note that you can edit variables inside main.py in a text editor and things such as MAX_CLIP_LENGTH, Title, Description, Tags, etc..
 
 8. In terminal/cmd, run `instalooter login` and `instaloader --login {YOUR_USERNAME}`. Follow the instructions to login.
 
