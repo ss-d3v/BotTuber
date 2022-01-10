@@ -13,6 +13,8 @@ from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 import config
 
+mode = input("Automated or Manual A/M:").upper()
+
 num_to_month = {
     1: "Jan",
     2: "Feb",
@@ -111,12 +113,25 @@ def routine():
     description += "#memes #dankmemes #compilation #funny #funnyvideos \n\n"
 
     # Step 3: Upload to Youtube
-    print("Uploading to Youtube...")
-    uploadYtvid(VIDEO_FILE_NAME=outputFile,
-                title=title,
-                description=description,
-                googleAPI=googleAPI)
-    print("Uploaded To Youtube!")
+    
+    def upload_to_youtube():
+        print("Uploading to Youtube...")
+        uploadYtvid(VIDEO_FILE_NAME=outputFile,
+                    title=title,
+                    description=description,
+                    googleAPI=googleAPI)
+        print("Uploaded To Youtube!")
+    
+    if mode =="A":
+        upload_to_youtube()
+
+    elif mode =="M":
+        proceed_to_upload = input("Upload to YouTube Y/n:")
+        if proceed_to_upload = "n":
+            upload_to_youtube()
+        else:
+            break
+            
     
     # Step 4: Cleanup
     print("Removing temp files!")
