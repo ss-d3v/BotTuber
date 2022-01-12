@@ -31,11 +31,12 @@ num_to_month = {
 } 
 
 # USER VARIABLES FILL THESE OUT (fill out username and password in config.py)
+# Commit - Automating Title with HashTags
 IG_USERNAME = config.IG_USERNAME
 IG_PASSWORD = config.IG_PASSWORD
 print(IG_USERNAME)
 print(IG_PASSWORD)
-title = "TRY NOT TO LAUGH (BEST Dank video memes) V1"
+title = "TRY NOT TO LAUGH (BEST Dank video memes) #meme #" + str(now.day)
 now = datetime.datetime.now()
 videoDirectory = "./DankMemes_" + num_to_month[now.month].upper() + "_" + str(now.year) + "_V" + str(now.day) + "/"
 outputFile = "./" + num_to_month[now.month].upper() + "_" + str(now.year) + "_v" + str(now.day) + ".mp4"
