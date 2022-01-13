@@ -106,8 +106,6 @@ def routine():
     now = datetime.datetime.now()
     print(now.year, now.month, now.day, now.hour, now.minute, now.second)
     
-    #metadataFile = "./metadata-" + num_to_month[now.month].upper() + "_" + str(now.year) + "_v" + str(now.day) + ".txt"
-    description = ""
     print(outputFile)
 
     if not os.path.exists(videoDirectory):
@@ -118,6 +116,7 @@ def routine():
     scrapeVideos(username = IG_USERNAME,
                  password = IG_PASSWORD,
                  output_folder = videoDirectory,
+                 modeAM = mode,
                   days=1)
     print("Scraped Videos!")
     

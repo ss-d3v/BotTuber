@@ -8,6 +8,7 @@ from instalooter.cli.login import login
 def scrapeVideos(username = "",
                  password = "",
                  output_folder = "",
+                 modeAM = "",
                  days = 1):
         
     print("Starting Scraping")
@@ -25,20 +26,42 @@ def scrapeVideos(username = "",
 
     for profile in following:
         acc = profile.username
-        looter = ProfileLooter(acc, videos_only=True, template="{id}-{username}-{width}-{height}")
+        looter = ProfileLooter(acc, videos_only=True, dump_json=True, template="{id}-{username}-{width}-{height}")
         if not looter.logged_in():
             looter.login(username, password)
         print("Scraping From Account: " + acc)
-        try:
-            numDowloaded = looter.download(output_folder, media_count=30, timeframe=timeframe)
-            print("Downloaded " + str(numDowloaded) + " videos successfully")
-            print("")
-        except Exception as e:
-            print("Skipped acc " + acc + "because of");
-            print(e);
+
+        # Scrap videos from this account or not
+        if modeAM == "M":
+            scrap_or_Skip_video = input(f"Do you want to scrape from {acc}'s profile?(Y/n):").strip()
+            if scrap_or_Skip_video == "n":
+                pass
+            else:
+                try:
+                    # videos downloaded
+                    numDowloaded = looter.download(output_folder, media_count=30, timeframe=timeframe)
+                    print("Downloaded " + str(numDowloaded) + " videos successfully")
+                    print("")
+
+                except Exception as e:
+                    # error Occcured 
+                    print("Skipped acc " + acc + "because of")
+                    print(e)
+        elif modeAM == "A":
+            try:
+                # videos downloaded
+                numDowloaded = looter.download(output_folder, media_count=30, timeframe=timeframe)
+                print("Downloaded " + str(numDowloaded) + " videos successfully")
+                print("")
+
+            except Exception as e:
+                # error Occcured 
+                print("Skipped acc " + acc + "because of")
+                print(e)
 
 
 if __name__ == "__main__":
     scrapeVideos(username = "chewymemes_v3",
                  password = "",
+                 modeAM = "A",
                  output_folder = "./Memes_December_4")
