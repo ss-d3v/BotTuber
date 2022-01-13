@@ -149,26 +149,34 @@ def routine():
     
     if mode =="A":
         upload_to_youtube()
-
     elif mode =="M":
-        proceed_to_upload = input("Upload to YouTube Y/n:")
+        proceed_to_upload == input("Upload to YouTube Y/n:")
         if proceed_to_upload = "n":
             upload_to_youtube()
         else:
-            break
-            
+            Print("Video not uploaded to YouTube")
     
     # Step 4: Cleanup
-    print("Removing temp files!")
-    # Delete all files made:
-    #   Folder videoDirectory
-    shutil.rmtree(videoDirectory, ignore_errors=True)
-    #   File outputFile
-    try:
-        os.remove(outputFile)
-    except OSError as e:  ## if failed, report it back to the user ##
-        print ("Error: %s - %s." % (e.filename, e.strerror))
-    print("Removed temp files!")
+    def cleanup():
+      print("Removing temp files!")
+      # Delete all files made:
+      #   Folder videoDirectory
+      shutil.rmtree(videoDirectory, ignore_errors=True)
+      #   File outputFile
+      try:
+          os.remove(outputFile)
+      except OSError as e:  ## if failed, report it back to the user ##
+          print ("Error: %s - %s." % (e.filename, e.strerror))
+      print("Removed temp files!")
+    
+    if mode == "A":
+      cleanup()
+    elif mode == "M":
+      keep_files = input("Do you wanna keep temp files?(y/N)").strip()
+      if keep_files == "n":
+        cleanup()
+      else:
+        print("files are not deleted")
 
 def attemptRoutine():
     while(1):
