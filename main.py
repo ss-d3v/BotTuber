@@ -12,6 +12,7 @@ from google_auth_oauthlib.flow import InstalledAppFlow #pip install google-auth-
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 import config
+import json
 
 
 
@@ -41,15 +42,27 @@ num_to_month = {
     11: "Nov",
     12: "Dec"
 } 
+now = datetime.datetime.now()
 
 # USER VARIABLES FILL THESE OUT (fill out username and password in config.py)
-# Commit - Automating Title with HashTags
+
 IG_USERNAME = config.IG_USERNAME
 IG_PASSWORD = config.IG_PASSWORD
 print(IG_USERNAME)
 print(IG_PASSWORD)
-title = "TRY NOT TO LAUGH (BEST Dank video memes) #meme #" + str(now.day)
-now = datetime.datetime.now()
+
+# Commit - Automating Title with HashTags
+if mode == "M":
+    title = input("Type video title in 100 C or leave Blank to Use Default Title:").strip()
+    description = input("Type video description headers or leave blank to use Default Headers:").strip()
+    tags = input("Add some tags to default tag list or use default tags:").strip()
+    if title == "":
+        title = "TRY NOT TO LAUGH | BEST Dank video #memes #" + str(now.day)
+elif mode == "A":
+    title = "TRY NOT TO LAUGH | BEST Dank video #memes #" + str(now.day)
+    description = ""
+    tags = ""
+
 videoDirectory = "./DankMemes_" + num_to_month[now.month].upper() + "_" + str(now.year) + "_V" + str(now.day) + "/"
 outputFile = "./" + num_to_month[now.month].upper() + "_" + str(now.year) + "_v" + str(now.day) + ".mp4"
 
