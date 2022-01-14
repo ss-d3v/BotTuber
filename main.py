@@ -150,8 +150,8 @@ def routine():
     if mode =="A":
         upload_to_youtube()
     elif mode =="M":
-        proceed_to_upload == input("Upload to YouTube Y/n:")
-        if proceed_to_upload = "n":
+        proceed_to_upload = input("Upload to YouTube Y/n:")
+        if proceed_to_upload == "n":
             upload_to_youtube()
         else:
             Print("Video not uploaded to YouTube")
