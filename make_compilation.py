@@ -31,9 +31,8 @@ def makeCompilation(path = "./",
                     description_meta = "",
                     modeAM = "A"):
 
-    allVideos = []
+    downVideos = []
     seenLengths = defaultdict(list)
-    totalLength = 0
     duration = 0
     videos = []
 
@@ -61,10 +60,11 @@ def makeCompilation(path = "./",
 
             # add_video in min&max range or ignore errors
             def add_video():
-                allVideos.append(clip)
+                downVideos.append(clip)
                 seenLengths[duration].append(fileName)
-                totalLength += duration
-            
+                totalVidLength += duration
+                return totalVidLength
+
             if modeAM == "A":
                 add_video()
             elif modeAM == "M":
@@ -103,13 +103,14 @@ def makeCompilation(path = "./",
                 video_source_meta[f"Caption{k}"] = json_d["edge_media_to_caption"]["edges"][0]["node"]["text"] + '\n'
 
                 description_meta = video_source_meta[f"TimeStamps{k}"] + video_source_meta[f"profile{k}"] + video_source_meta[f"vido_url{k}"] + video_source_meta[f"Caption{k}"]
-
+            return totalVidLength
+        return totalVidLength
     print(description_meta)
 
-    print("Total Length: " + str(totalLength))
-
+    print("Total Length: " + str(totalVidLength))
+    print(downVideos)
     # Create videos
-    for clip in allVideos:
+    for clip in downVideos:
         duration += clip.duration 
         videos.append(clip)
 
@@ -121,7 +122,8 @@ def makeCompilation(path = "./",
     if outroName != '':
         outroVid = VideoFileClip("./" + outroName)
         videos.append(outroVid)
-
+    
+    # Used Moviepy lib
     finalClip = concatenate_videoclips(videos, method="compose")
 
     audio_path = "/tmp/temoaudiofile.m4a"
