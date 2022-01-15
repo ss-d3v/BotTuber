@@ -120,8 +120,14 @@ def routine():
                   days=1)
     print("Scraped Videos!")
     
-    description = "Enjoy the memes! :) \n\n" \
-    "like and subscribe to @Chewy for more \n\n" \
+        # intro into description
+    description += """Enjoy some of the funniest videos on the internet! 
+Why spend hours searching for funny videos that make you laugh when you can get some of the best memes here!
+
+In this video, I show you the best Dank Video Memes on the internet😁😂😂.
+Links To Sources & Credit to owners⬇️:
+
+"""
 
     # Step 2: Make Compilation
     print("Making Compilation...")
@@ -131,11 +137,52 @@ def routine():
                     totalVidLength = TOTAL_VID_LENGTH,
                     maxClipLength = MAX_CLIP_LENGTH,
                     minClipLength = MIN_CLIP_LENGTH,
-                    outputFile = outputFile)
+                    outputFile = outputFile,
+                    videoDirectory = videoDirectory,
+                    description_meta= "")
     print("Made Compilation!")
-    
+
+    # added video metaData(profile, video_url, Caption) within make_compilation script
+
+    description += """
+    Welcome to my Channel, where I search for the best trending videos, or videos people have forgotten about, and put them all in one video. I upload 2-3 times a week to keep video quality high. I always ask for permission to share videos that I find!
+If you enjoyed this video, watch my other videos as well
+
+
+Click here to subscribe today:
+►►►Follow me!
+new video every day :)
+
+#️⃣clips featured are used with permission from original creators
+
+"""
+
+    #disclaimer
+    description += "----------------------------------------------------------------------------------------------------------------"
+
+    # tags
+    description += """
+In this video you will watch Extremely Funny memes, dankest, funny af, offensive memes, vine videos, meme compilation, dank meme compilation, Funny videos, Memes, Unexpected videos, Reddit Memes, Perfectly Cut Screams Memes, Watch People Die Inside Memes, videos I found on reddit, Try not to laugh videos, Totally Random, Cursed Memes, Cute and Funny Animals, Cute and Funny Dogs, Cute and Funny Cats,  Funny Vines, Anime Memes, Cartoon Memes, Fails Memes, SpongeBob Memes, Spiderman Memes, Super Mario Memes, Dwayne "The Rock" Johnson Memes, Gaming Memes, Among Us "Sus" Memes, Disney Memes, Nintendo Memes, Wii Sports Memes, Mickey Mouse Memes, Star Wars Memes, Adventure Time Memes, Twitch Streamer Memes, Family Guy Memes, GTA Memes, Bowling Memes, Soccer Football Memes, Fortnite Memes, Music Memes, Avengers Memes, Michael Jackson Memes, Pokemon Memes, Windows Error Memes, Thanos Memes, Zoom Memes, Winnie The Pooh Memes, McDonald's Memes, Monkey Memes, Twitter Memes, Will Smith Memes, School Memes, Halloween Memes, Phineas and Ferb Memes, Mom Memes, Holy Memes, Amazon Echo Memes, Gorillaz Memes
+
+Memes that are approved by school
+Memes that will finally bring you happiness
+You laugh, you 💀
+Memes that are teacher approved
+Memes that will finally bring you happines
+memes that 😂
+UNUSUAL MEMES COMPILATION
+The Best Of The Internet
+"""
     description += "\n\nCopyright Disclaimer, Under Section 107 of the Copyright Act 1976, allowance is made for 'fair use' for purposes such as criticism, comment, news reporting, teaching, scholarship, and research. Fair use is a use permitted by copyright statute that might otherwise be infringing. Non-profit, educational or personal use tips the balance in favor of fair use.\n\n"
+
+    # Hashtags
     description += "#memes #dankmemes #compilation #funny #funnyvideos \n\n"
+    description += "#memes #dankmemes #compilation #funny #funnyvideos #shorts #TikTok #randomvideos "
+
+    print(description)
+
+    tags += "Extremely Funny memes, dankest, funny af, offensive memes, vine videos, meme compilation, dank meme compilation, Funny videos, Memes, Unexpected videos, Reddit Memes"
+
 
     # Step 3: Upload to Youtube
     
@@ -149,12 +196,14 @@ def routine():
     
     if mode =="A":
         upload_to_youtube()
+        print(f"tags used: {tags}")
     elif mode =="M":
         proceed_to_upload = input("Upload to YouTube Y/n:")
-        if proceed_to_upload == "n":
+        if proceed_to_upload != "n":
             upload_to_youtube()
+            print(f"tags used: {tags}")
         else:
-            Print("Video not uploaded to YouTube")
+            print("Video not uploaded to YouTube")
     
     # Step 4: Cleanup
     def cleanup():
@@ -194,4 +243,3 @@ attemptRoutine()
 while True:
     schedule.run_pending()  
     time.sleep(60) # wait one min
-
