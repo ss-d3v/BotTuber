@@ -79,7 +79,7 @@ SCOPES = ["https://www.googleapis.com/auth/youtube.upload"]
 os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
 client_secrets_file = "googleAPI.json"
 
-def routine():
+def routine(title, description, tags):
 
     # Handle GoogleAPI oauthStuff
     print("Handling GoogleAPI")
@@ -120,7 +120,7 @@ def routine():
                   days=1)
     print("Scraped Videos!")
     
-        # intro into description
+    # intro into description
     description += """Enjoy some of the funniest videos on the internet! 
 Why spend hours searching for funny videos that make you laugh when you can get some of the best memes here!
 
@@ -230,7 +230,7 @@ The Best Of The Internet
 def attemptRoutine():
     while(1):
         try:
-            routine()
+            routine(title, description, tags)
             break
         except OSError as err:
             print("Routine Failed on " + "OS error: {0}".format(err))
