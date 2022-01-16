@@ -22,7 +22,7 @@ def extractAcc(filepath):
 def makeCompilation(path = "./",
                     introName = '',
                     outroName = '',
-                    totalVidLength = 10*60,
+                    totalVidLength = 10,
                     maxClipLength = 20,
                     minClipLength = 5,
                     outputFile = "output.mp4",
@@ -33,6 +33,7 @@ def makeCompilation(path = "./",
 
     downVideos = []
     seenLengths = defaultdict(list)
+    #totalLength = 0
     duration = 0
     videos = []
 
@@ -44,14 +45,15 @@ def makeCompilation(path = "./",
 
 
     for fileName in os.listdir(path):
-        
         filePath = join(path, fileName)
+
         if isfile(filePath) and fileName.endswith(".mp4"):
 
             if os.stat(filePath).st_size < 5000:
                 continue
 
             # Destination path
+            print(filePath)
             clip = VideoFileClip(filePath)
             clip = clip.resize(width=1920)
             clip = clip.resize(height=1080)
@@ -59,23 +61,25 @@ def makeCompilation(path = "./",
             print(fileName + " " + str(duration) + " Added")
 
             # add_video in min&max range or ignore errors
-            def add_video():
+            def add_video(duration):
                 downVideos.append(clip)
                 seenLengths[duration].append(fileName)
-                totalVidLength += duration
-                return totalVidLength
+                duration += clip.duration
+
+
+            print(duration, seenLengths, downVideos)
 
             if modeAM == "A":
-                add_video()
+                add_video(duration)
             elif modeAM == "M":
                 if duration <= maxClipLength and duration >= minClipLength:
-                    add_video()
+                    add_video(duration)
                 else:
                     ignore_error = input("Do you want to ignore Errors in min max Total Video Length?(Y/n)").strip()
                     if ignore_error != "n":
                         pass
                     else:
-                        add_video()
+                        add_video(duration)
 
             #Add automated description
 
@@ -88,7 +92,7 @@ def makeCompilation(path = "./",
 
                 # Fix error in TimeStamps
                 duration_in_min = str(duration).split(".")
-                duration_in_min.pop()
+                #duration_in_min.pop()
                 video_source_meta[f"TimeStamps{k}"] = "00:" + str(duration_in_min[0]) + " : @" + acc + "\n"
 
                 video_source_meta[f"profile{k}"] = "Instagram profile:" + "  instagram.com/" + acc +'\n'
@@ -102,16 +106,14 @@ def makeCompilation(path = "./",
                 video_source_meta[f"vido_url{k}"] = "Video URL:" + "instagram.com/tv/" + json_d["shortcode"] + '\n'
                 video_source_meta[f"Caption{k}"] = json_d["edge_media_to_caption"]["edges"][0]["node"]["text"] + '\n'
 
-                description_meta = video_source_meta[f"TimeStamps{k}"] + video_source_meta[f"profile{k}"] + video_source_meta[f"vido_url{k}"] + video_source_meta[f"Caption{k}"]
-            return totalVidLength
-        return totalVidLength
-    print(description_meta)
+                description_meta += video_source_meta[f"TimeStamps{k}"] + video_source_meta[f"profile{k}"] + video_source_meta[f"vido_url{k}"] + video_source_meta[f"Caption{k}"]
 
-    print("Total Length: " + str(totalVidLength))
-    print(downVideos)
+    print(description_meta)
+    print("Total Length: " + str(duration))
+
     # Create videos
     for clip in downVideos:
-        duration += clip.duration 
+        #duration += clip.duration 
         videos.append(clip)
 
         if duration >= totalVidLength:
