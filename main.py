@@ -128,7 +128,7 @@ In this video, I show you the best Dank Video Memes on the internet😁😂😂.
 Links To Sources & Credit to owners⬇️:
 
 """
-
+    description_meta = ""
     # Step 2: Make Compilation
     print("Making Compilation...")
     makeCompilation(path = videoDirectory,
@@ -143,6 +143,7 @@ Links To Sources & Credit to owners⬇️:
     print("Made Compilation!")
 
     # added video metaData(profile, video_url, Caption) within make_compilation script
+    description += description_meta
 
     description += """
     Welcome to my Channel, where I search for the best trending videos, or videos people have forgotten about, and put them all in one video. I upload 2-3 times a week to keep video quality high. I always ask for permission to share videos that I find!
