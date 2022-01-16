@@ -106,7 +106,7 @@ def makeCompilation(path = "./",
                 video_source_meta[f"vido_url{k}"] = "Video URL:" + "instagram.com/tv/" + json_d["shortcode"] + '\n'
                 video_source_meta[f"Caption{k}"] = json_d["edge_media_to_caption"]["edges"][0]["node"]["text"] + '\n'
 
-                description_meta += video_source_meta[f"TimeStamps{k}"] + video_source_meta[f"profile{k}"] + video_source_meta[f"vido_url{k}"] + video_source_meta[f"Caption{k}"]
+                description_meta = video_source_meta[f"TimeStamps{k}"] + video_source_meta[f"profile{k}"] + video_source_meta[f"vido_url{k}"] + video_source_meta[f"Caption{k}"] + '\n\n'
 
     print(description_meta)
     print("Total Length: " + str(duration))
