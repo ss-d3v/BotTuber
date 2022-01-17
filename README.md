@@ -7,8 +7,6 @@
 🄵🅄🄻🄻 🅈🄾🅄🅃🅄🄱🄴 🄲🄷🄰🄽🄽🄴🄻 🄰🅄🅃🄾🄼🄰🅃🄸🄾🄽 🅂🅄🄸🅃🄴
 ```
 
-[YouTube Channel](https://youtube.com/c/pwnos)
-
 Code to run a fully automated youtube that can scrape content, edit a compilation, and upload to youtube daily. \
 
 # Quick Start
@@ -52,3 +50,14 @@ Download your OATH file and name it as "googleAPI.json" in your project folder.
 10. Type "A" to run automated script or "M" to manually decide what to do at each step
 
 11. Enjoy your fully automated youtube channel! :) Note that for uploading public videos, you have to complete an audit for the Youtube API. See the note in the [Google Documentation](https://developers.google.com/youtube/v3/docs/videos/insert). Without this, you can only post private videos, but they approve everyone. Have fun!
+
+
+####    Author Socials
+
+* [YouTube_Channel](https://youtube.com/c/pwnos)
+* [Patreon](https://www.patreon.com/pwnOS)
+* [LinkedIn](https://linkedin.com/in/sam-sepi0l/)
+* [Quora](https://pwnos.quora.com/)
+* [GitHub](https://github.com/sam5epi0l)
+* [TryHackMe](https://tryhackme.com/signup?referrer=sam.sepiol)
+* [Reddit](https://www.reddit.com/r/pwn05/)
