@@ -16,6 +16,8 @@ Read about it here: https://medium.com/@nathan_149/making-a-fully-automated-yout
 
     git clone https://github.com/sam5epi0l/BotTuber.git
     cd BotTuber
+    # add instagram credentials in config.py
+    # add YouTube API v3 credentials to googleAPI.json (check instructions)
     pip3 install -r requirements.txt
     python3 main.py
 
