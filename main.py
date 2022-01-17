@@ -17,11 +17,17 @@ import sys
 
 
 print("""
-▒█▀▀█ █▀▀█ ▀▀█▀▀ ▀▀█▀▀ █░░█ █▀▀▄ █▀▀ █▀▀█ 
-▒█▀▀▄ █░░█ ░░█░░ ░▒█░░ █░░█ █▀▀▄ █▀▀ █▄▄▀ 
-▒█▄▄█ ▀▀▀▀ ░░▀░░ ░▒█░░ ░▀▀▀ ▀▀▀░ ▀▀▀ ▀░▀▀
-🄵🅄🄻🄻 🅈🄾🅄🅃🅄🄱🄴 🄲🄷🄰🄽🄽🄴🄻 🄰🅄🅃🄾🄼🄰🅃🄸🄾🄽 🅂🅄🄸🅃🄴
-                
+  ▒█▀▀█ █▀▀█ ▀▀█▀▀ ▀▀█▀▀ █░░█ █▀▀▄ █▀▀ █▀▀█ 
+  ▒█▀▀▄ █░░█ ░░█░░ ░▒█░░ █░░█ █▀▀▄ █▀▀ █▄▄▀ 
+  ▒█▄▄█ ▀▀▀▀ ░░▀░░ ░▒█░░ ░▀▀▀ ▀▀▀░ ▀▀▀ ▀░▀▀
+  🄵🅄🄻🄻 🅈🄾🅄🅃🅄🄱🄴 🄲🄷🄰🄽🄽🄴🄻 🄰🅄🅃🄾🄼🄰🅃🄸🄾🄽 🅂🅄🄸🅃🄴
+
+  YouTube Channel - https://youtube.com/c/pwnos
+  GitHub - https://github.com/sam5epi0l/BotTuber
+  LinkedIn - https://linkedin.com/in/sam-sepi0l/
+  Twitter - https://twitter.com/sam5epi0l
+  Quora - https://pwnos.quora.com/
+  Patreon - https://www.patreon.com/pwnOS
 """)
 
 if sys.argv[-1].upper() == "-A":
@@ -32,6 +38,16 @@ elif sys.argv[-1].upper() == "-M":
   mode = "M"
 else:
   print("""
+  Code to run a fully automated youtube that can scrape content, edit a compilation, and upload to youtube daily. \
+
+  Quick Start
+  git clone https://github.com/sam5epi0l/BotTuber.git
+  cd BotTuber
+  # add instagram credentials in config.py
+  # add YouTube API v3 credentials to googleAPI.json (check instructions)
+  pip3 install -r requirements.txt
+  python3 main.py
+
   USAGE: python 3 main.py [OPTIONS]
   
   OPTIONS -
