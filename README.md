@@ -12,9 +12,23 @@
 Code to run a fully automated youtube that can scrape content, edit a compilation, and upload to youtube daily. \
 Read about it here: https://medium.com/@nathan_149/making-a-fully-automated-youtube-channel-20f2fa57e469
 
+# Quick Start
+
+    git clone https://github.com/sam5epi0l/BotTuber.git
+    cd BotTuber
+    pip3 install -r requirements.txt
+    python3 main.py
+
+# Usage
+
+    python3 main.py -i # interactive mode
+    python3 main.py -a # Full automation
+    python3 main.py -m # manual mode
+    python3 main.py -h # help menu
+
 # Instructions
 
-1. [Download](https://github.com/nathan-149/automated_youtube_channel/archive/refs/heads/master.zip) the Github Repository
+1. [Download](https://github.com/sam5epi0l/BotTuber.git) the Github Repository
 
 2. Download and install [Python3](https://www.python.org/downloads/) and [pip](https://pip.pypa.io/en/stable/installing/) if necessary.
 
