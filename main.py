@@ -13,7 +13,7 @@ from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 import config
 import json
-
+import sys
 
 
 print("""
@@ -24,9 +24,23 @@ print("""
                 
 """)
 
-
-
-mode = input("Automated or Manual A/M:").upper()
+if sys.argv[-1].upper() == "-A":
+  mode = "A"
+elif sys.argv[-1].upper() == "-I":
+  mode = input("Automated or Manual A/M:").upper()
+elif sys.argv[-1].upper() == "-M":
+  mode = "M"
+else:
+  print("""
+  USAGE: python 3 main.py [OPTIONS]
+  
+  OPTIONS -
+  python3 main.py -i Interactive Mode
+  python3 main.py -a Full Automation
+  python3 main.py -m Manual Mode
+  python3 main.py -h Help Menu
+  """)
+  exit()
 
 num_to_month = {
     1: "Jan",
