@@ -46,15 +46,15 @@ else:
   # add instagram credentials in config.py
   # add YouTube API v3 credentials to googleAPI.json (check instructions)
   pip3 install -r requirements.txt
-  python3 main.py
+  python3 botTuber.py
 
-  USAGE: python 3 main.py [OPTIONS]
+  USAGE: python3 botTuber.py [OPTIONS]
   
   OPTIONS -
-  python3 main.py -i Interactive Mode
-  python3 main.py -a Full Automation
-  python3 main.py -m Manual Mode
-  python3 main.py -h Help Menu
+  python3 botTuber.py -i Interactive Mode
+  python3 botTuber.py -a Full Automation
+  python3 botTuber.py -m Manual Mode
+  python3 botTuber.py -h Help Menu
   """)
   exit()
 
