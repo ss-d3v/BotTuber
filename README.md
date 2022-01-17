@@ -10,7 +10,6 @@
 [YouTube Channel](https://youtube.com/c/pwnos)
 
 Code to run a fully automated youtube that can scrape content, edit a compilation, and upload to youtube daily. \
-Read about it here: https://medium.com/@nathan_149/making-a-fully-automated-youtube-channel-20f2fa57e469
 
 # Quick Start
 
