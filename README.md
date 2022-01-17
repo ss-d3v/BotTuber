@@ -18,14 +18,14 @@ Code to run a fully automated youtube that can scrape content, edit a compilatio
     # add instagram credentials in config.py
     # add YouTube API v3 credentials to googleAPI.json (check instructions)
     pip3 install -r requirements.txt
-    python3 main.py
+    python3 botTuber.py
 
 # Usage
 
-    python3 main.py -i # interactive mode
-    python3 main.py -a # Full automation
-    python3 main.py -m # manual mode
-    python3 main.py -h # help menu
+    python3 botTuber.py -i # interactive mode
+    python3 botTuber.py -a # Full automation
+    python3 botTuber.py -m # manual mode
+    python3 botTuber.py -h # help menu
 
 # Instructions
 
@@ -43,11 +43,11 @@ Download your OATH file and name it as "googleAPI.json" in your project folder.
 
 7. Open config.py in a text editor and fill in instagram credentials
 
-- Note that you can edit variables inside main.py in a text editor and things such as MAX_CLIP_LENGTH, Title, Description, Tags, etc..
+- Note that you can edit variables inside botTuber.py in a text editor and things such as MAX_CLIP_LENGTH, Title, Description, Tags, etc..
 
 8. In terminal/cmd, run `instalooter login` and `instaloader --login {YOUR_USERNAME}`. Follow the instructions to login.
 
-9. Run `python3 main.py` in your computer terminal (terminal or cmd). You have to sign in to your Youtube Account through the link the script will give you. It's going to ask you: "Please visit this URL to authorize this application:..." so you copy that link, paste it in your browser, and then sign into your Google account. Then paste the authentication code you get back into your terminal. It will then say "Starting Scraping" and sign into your instagram account.
+9. Run `python3 botTuber.py` in your computer terminal (terminal or cmd). You have to sign in to your Youtube Account through the link the script will give you. It's going to ask you: "Please visit this URL to authorize this application:..." so you copy that link, paste it in your browser, and then sign into your Google account. Then paste the authentication code you get back into your terminal. It will then say "Starting Scraping" and sign into your instagram account.
 
 10. Type "A" to run automated script or "M" to manually decide what to do at each step
 
