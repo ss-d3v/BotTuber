@@ -7,6 +7,8 @@
 🄵🅄🄻🄻 🅈🄾🅄🅃🅄🄱🄴 🄲🄷🄰🄽🄽🄴🄻 🄰🅄🅃🄾🄼🄰🅃🄸🄾🄽 🅂🅄🄸🅃🄴
 ```
 
+[![asciicast](https://asciinema.org/a/462254.svg)](https://asciinema.org/a/462254?t=3:21&speed=4)
+
 Code to run a fully automated youtube that can scrape content, edit a compilation, and upload to youtube daily. \
 
 # Quick Start
