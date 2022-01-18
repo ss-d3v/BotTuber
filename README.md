@@ -6,7 +6,6 @@
 ▒█▄▄█ ▀▀▀▀ ░░▀░░ ░▒█░░ ░▀▀▀ ▀▀▀░ ▀▀▀ ▀░▀▀
 🄵🅄🄻🄻 🅈🄾🅄🅃🅄🄱🄴 🄲🄷🄰🄽🄽🄴🄻 🄰🅄🅃🄾🄼🄰🅃🄸🄾🄽 🅂🅄🄸🅃🄴
 ```
-[![sam5epi0l/BotTuber - GitHub](https://gh-card.dev/repos/sam5epi0l/BotTuber.png?fullname=)](https://github.com/sam5epi0l/BotTuber)
 
 ![Video Tutorial](https://i9.ytimg.com/vi/BbPErvcqXyw/maxresdefault.jpg?time=1642516500000&sqp=CJSgm48G&rs=AOn4CLBbpdTDy9nJ6ftxyuRniW5ZrUGr-g)(https://youtu.be/BbPErvcqXyw)
 
@@ -64,3 +63,6 @@ Download your OATH file and name it as "googleAPI.json" in your project folder.
 * [GitHub](https://github.com/sam5epi0l)
 * [TryHackMe](https://tryhackme.com/signup?referrer=sam.sepiol)
 * [Reddit](https://www.reddit.com/r/pwn05/)
+
+
+[![sam5epi0l/BotTuber - GitHub](https://gh-card.dev/repos/sam5epi0l/BotTuber.png?fullname=)](https://github.com/sam5epi0l/BotTuber)
