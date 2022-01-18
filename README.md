@@ -7,7 +7,7 @@
 🄵🅄🄻🄻 🅈🄾🅄🅃🅄🄱🄴 🄲🄷🄰🄽🄽🄴🄻 🄰🅄🅃🄾🄼🄰🅃🄸🄾🄽 🅂🅄🄸🅃🄴
 ```
 
-![Video Tutorial](https://i9.ytimg.com/vi/BbPErvcqXyw/maxresdefault.jpg?time=1642516500000&sqp=CJSgm48G&rs=AOn4CLBbpdTDy9nJ6ftxyuRniW5ZrUGr-g)(https://youtu.be/BbPErvcqXyw)
+![Video Tutorial](https://asciinema.org/a/462254.svg)(https://youtu.be/BbPErvcqXyw)
 
 Code to run a fully automated youtube that can scrape content, edit a compilation, and upload to youtube daily. \
 
