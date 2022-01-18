@@ -6,8 +6,9 @@
 ▒█▄▄█ ▀▀▀▀ ░░▀░░ ░▒█░░ ░▀▀▀ ▀▀▀░ ▀▀▀ ▀░▀▀
 🄵🅄🄻🄻 🅈🄾🅄🅃🅄🄱🄴 🄲🄷🄰🄽🄽🄴🄻 🄰🅄🅃🄾🄼🄰🅃🄸🄾🄽 🅂🅄🄸🅃🄴
 ```
+[![sam5epi0l/BotTuber - GitHub](https://gh-card.dev/repos/sam5epi0l/BotTuber.png?fullname=)](https://github.com/sam5epi0l/BotTuber)
 
-[![asciicast](https://asciinema.org/a/462254.svg)](https://asciinema.org/a/462254?t=3:21&speed=4)
+![Video Tutorial](https://i9.ytimg.com/vi/BbPErvcqXyw/maxresdefault.jpg?time=1642516500000&sqp=CJSgm48G&rs=AOn4CLBbpdTDy9nJ6ftxyuRniW5ZrUGr-g)(https://youtu.be/BbPErvcqXyw)
 
 Code to run a fully automated youtube that can scrape content, edit a compilation, and upload to youtube daily. \
 
