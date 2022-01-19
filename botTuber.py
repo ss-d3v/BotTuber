@@ -173,7 +173,7 @@ Links To Sources & Credit to owners⬇️:
     print("Made Compilation!")
 
     # added video metaData(profile, video_url, Caption) within make_compilation script
-    description += makeCompilation.description_meta
+    #description += makeCompilation.description_meta
 
     description += """
     Welcome to my Channel, where I search for the best trending videos, or videos people have forgotten about, and put them all in one video. I upload 2-3 times a week to keep video quality high. I always ask for permission to share videos that I find!
