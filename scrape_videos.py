@@ -33,9 +33,11 @@ def scrapeVideos(username = "",
 
         # Scrap videos from this account or not
         if modeAM == "M":
-            scrap_or_Skip_video = input(f"Do you want to scrape from {acc}'s profile?(Y/n):").strip()
+            scrap_or_Skip_video = input(f"Do you want to scrape from {acc}'s profile?(Y/n/q(uit)):").strip()
             if scrap_or_Skip_video == "n":
                 pass
+            elif scrap_or_Skip_video == "q":
+                break
             else:
                 try:
                     # videos downloaded
