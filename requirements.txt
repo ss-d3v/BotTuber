@@ -1,5 +1,5 @@
-google_api_python_client==1.12.8
-google_auth_oauthlib==0.4.2
+google_api_python_client==2.36.0
+google_auth_oauthlib==0.4.6
 instaloader==4.5.5
 instalooter==2.4.4
 moviepy==1.0.3
