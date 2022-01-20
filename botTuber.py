@@ -17,17 +17,17 @@ import sys
 
 
 print("""
-  ▒█▀▀█ █▀▀█ ▀▀█▀▀ ▀▀█▀▀ █░░█ █▀▀▄ █▀▀ █▀▀█ 
-  ▒█▀▀▄ █░░█ ░░█░░ ░▒█░░ █░░█ █▀▀▄ █▀▀ █▄▄▀ 
-  ▒█▄▄█ ▀▀▀▀ ░░▀░░ ░▒█░░ ░▀▀▀ ▀▀▀░ ▀▀▀ ▀░▀▀
-  🄵🅄🄻🄻 🅈🄾🅄🅃🅄🄱🄴 🄲🄷🄰🄽🄽🄴🄻 🄰🅄🅃🄾🄼🄰🅃🄸🄾🄽 🅂🅄🄸🅃🄴
+▒█▀▀█ █▀▀█ ▀▀█▀▀ ▀▀█▀▀ █░░█ █▀▀▄ █▀▀ █▀▀█ 
+▒█▀▀▄ █░░█ ░░█░░ ░▒█░░ █░░█ █▀▀▄ █▀▀ █▄▄▀ 
+▒█▄▄█ ▀▀▀▀ ░░▀░░ ░▒█░░ ░▀▀▀ ▀▀▀░ ▀▀▀ ▀░▀▀
+🄵🅄🄻🄻 🅈🄾🅄🅃🅄🄱🄴 🄲🄷🄰🄽🄽🄴🄻 🄰🅄🅃🄾🄼🄰🅃🄸🄾🄽 🅂🅄🄸🅃🄴
 
-  YouTube Channel - https://youtube.com/c/pwnos
-  GitHub - https://github.com/sam5epi0l/BotTuber
-  LinkedIn - https://linkedin.com/in/sam-sepi0l/
-  Twitter - https://twitter.com/sam5epi0l
-  Quora - https://pwnos.quora.com/
-  Patreon - https://www.patreon.com/pwnOS
+YouTube Channel - https://youtube.com/c/pwnos
+GitHub - https://github.com/sam5epi0l/BotTuber
+LinkedIn - https://linkedin.com/in/sam-sepi0l/
+Twitter - https://twitter.com/sam5epi0l
+Quora - https://pwnos.quora.com/
+Patreon - https://www.patreon.com/pwnOS
 """)
 
 if sys.argv[-1].upper() == "-A":
@@ -58,6 +58,7 @@ else:
   """)
   exit()
 
+os.system("touch description.txt") #make description file
 num_to_month = {
     1: "Jan",
     2: "Feb",
@@ -158,7 +159,10 @@ In this video, I show you the best Dank Video Memes on the internet😁😂😂.
 Links To Sources & Credit to owners⬇️:
 
 """
-    description_meta = ""
+    
+    with open("description.txt", 'a') as dfile:
+        dfile.write(description)
+
     # Step 2: Make Compilation
     print("Making Compilation...")
     makeCompilation(path = videoDirectory,
@@ -173,7 +177,6 @@ Links To Sources & Credit to owners⬇️:
     print("Made Compilation!")
 
     # added video metaData(profile, video_url, Caption) within make_compilation script
-    #description += makeCompilation.description_meta
 
     description += """
     Welcome to my Channel, where I search for the best trending videos, or videos people have forgotten about, and put them all in one video. I upload 2-3 times a week to keep video quality high. I always ask for permission to share videos that I find!
@@ -210,10 +213,13 @@ The Best Of The Internet
     description += "#memes #dankmemes #compilation #funny #funnyvideos \n\n"
     description += "#memes #dankmemes #compilation #funny #funnyvideos #shorts #TikTok #randomvideos "
 
+    with open("description.txt", 'a+') as dfile:
+        dfile.write(description)
+        description += dfile.read()
+
     print(description)
 
     tags += "Extremely Funny memes, dankest, funny af, offensive memes, vine videos, meme compilation, dank meme compilation, Funny videos, Memes, Unexpected videos, Reddit Memes"
-
 
     # Step 3: Upload to Youtube
     
@@ -252,7 +258,7 @@ The Best Of The Internet
     if mode == "A":
       cleanup()
     elif mode == "M":
-      keep_files = input("Do you wanna keep temp files?(y/N)").strip()
+      keep_files = input("Do you wanna keep temp files?(Y/n)").strip()
       if keep_files == "n":
         cleanup()
       else:
