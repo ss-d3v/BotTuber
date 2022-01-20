@@ -109,6 +109,10 @@ def makeCompilation(path = "./",
                 description_meta = video_source_meta[f"TimeStamps{k}"] + video_source_meta[f"profile{k}"] + video_source_meta[f"vido_url{k}"] + video_source_meta[f"Caption{k}"] + '\n\n'
 
     print(description_meta)
+
+    with open("description.txt", 'a') as dfile:
+        dfile.write(description_meta)
+
     print("Total Length: " + str(duration))
 
     # Create videos
@@ -132,9 +136,8 @@ def makeCompilation(path = "./",
 
     # Create compilation
     finalClip.write_videofile(outputFile, threads=8, temp_audiofile=audio_path, remove_temp=True, codec="libx264", audio_codec="aac")
-    
-    return description_meta
-    
+
+
 if __name__ == "__main__":
     makeCompilation(path = "/home/kali/Documents/YOUTUBE/AutomatedChannel/Videos/Memes/",
                     introName = "intro_vid.mp4",
