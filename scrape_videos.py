@@ -29,37 +29,33 @@ def scrapeVideos(username = "",
         looter = ProfileLooter(acc, videos_only=True, dump_json=True, template="{id}-{username}-{width}-{height}")
         if not looter.logged_in():
             looter.login(username, password)
-        print("Scraping From Account: " + acc)
+        print("[+]Scraping From Account: " + acc)
 
         # Scrap videos from this account or not
-        if modeAM == "M":
-            scrap_or_Skip_video = input(f"Do you want to scrape from {acc}'s profile?(Y/n/q(uit)):").strip()
-            if scrap_or_Skip_video == "n":
-                pass
-            elif scrap_or_Skip_video == "q":
-                break
-            else:
-                try:
-                    # videos downloaded
-                    numDowloaded = looter.download(output_folder, media_count=30, timeframe=timeframe)
-                    print("Downloaded " + str(numDowloaded) + " videos successfully")
-                    print("")
 
-                except Exception as e:
-                    # error Occcured 
-                    print("Skipped acc " + acc + "because of")
-                    print(e)
-        elif modeAM == "A":
+        def scrape_videos_fn():
             try:
                 # videos downloaded
                 numDowloaded = looter.download(output_folder, media_count=30, timeframe=timeframe)
-                print("Downloaded " + str(numDowloaded) + " videos successfully")
+                print("[+]Downloaded " + str(numDowloaded) + " videos successfully")
                 print("")
 
             except Exception as e:
                 # error Occcured 
-                print("Skipped acc " + acc + "because of")
+                print("[+]Skipped acc " + acc + "because of")
                 print(e)
+
+        if modeAM == "M":
+            scrap_or_Skip_video = input(f"[Q]Do you want to scrape from {acc}'s profile?(Y/n/q):").strip().lower()
+            if scrap_or_Skip_video == "n":
+                print("[+]Skiped Scraping")
+            if scrap_or_Skip_video == "q":
+                print("[+]Exit Scrapping Loop")
+                break
+            else:
+                scrape_videos_fn()
+        elif modeAM == "A":
+            scrape_videos_fn()
 
 
 if __name__ == "__main__":
