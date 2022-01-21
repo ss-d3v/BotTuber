@@ -33,7 +33,7 @@ Patreon - https://www.patreon.com/pwnOS
 if sys.argv[-1].upper() == "-A":
   mode = "A"
 elif sys.argv[-1].upper() == "-I":
-  mode = input("Automated or Manual A/M:").upper()
+  mode = input("[Q] Automated or Manual A/M:").upper()
 elif sys.argv[-1].upper() == "-M":
   mode = "M"
 else:
@@ -79,14 +79,14 @@ now = datetime.datetime.now()
 
 IG_USERNAME = config.IG_USERNAME
 IG_PASSWORD = config.IG_PASSWORD
-print(IG_USERNAME)
-print(IG_PASSWORD)
+print("[i] ", IG_USERNAME)
+print("[i] ", IG_PASSWORD)
 
 # Commit - Automating Title with HashTags
 if mode == "M":
-    title = input("Type video title in 100 C or leave Blank to Use Default Title:").strip()
-    description = input("Type video description headers or leave blank to use Default Headers:").strip()
-    tags = input("Add some tags to default tag list or use default tags:").strip()
+    title = input("[Q] Type video title in 100 C or leave Blank to Use Default Title:").strip()
+    description = input("[Q] Type video description headers or leave blank to use Default Headers:").strip()
+    tags = input("[Q] Add some tags to default tag list or use default tags:").strip()
     if title == "":
         title = "TRY NOT TO LAUGH | BEST Dank video #memes #" + str(now.day)
 elif mode == "A":
@@ -113,7 +113,7 @@ client_secrets_file = "googleAPI.json"
 def routine(title, description, tags):
 
     # Handle GoogleAPI oauthStuff
-    print("Handling GoogleAPI")
+    print("[+] Handling GoogleAPI")
     creds = None
     # The file token1.json stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
@@ -135,21 +135,21 @@ def routine(title, description, tags):
     googleAPI = build('youtube', 'v3', credentials=creds)
 
     now = datetime.datetime.now()
-    print(now.year, now.month, now.day, now.hour, now.minute, now.second)
+    print("[+] ", now.year, now.month, now.day, now.hour, now.minute, now.second)
     
-    print(outputFile)
+    print("[+] ", outputFile)
 
     if not os.path.exists(videoDirectory):
         os.makedirs(videoDirectory)
     
     # Step 1: Scrape Videos
-    print("Scraping Videos...")
+    print("[+] Scraping Videos...")
     scrapeVideos(username = IG_USERNAME,
                  password = IG_PASSWORD,
                  output_folder = videoDirectory,
                  modeAM = mode,
                   days=1)
-    print("Scraped Videos!")
+    print("[+] Scraped Videos!")
     
     # intro into description
     description += """Enjoy some of the funniest videos on the internet! 
@@ -164,19 +164,38 @@ Links To Sources & Credit to owners⬇️:
         dfile.write(description)
 
     # Step 2: Make Compilation
-    print("Making Compilation...")
-    makeCompilation(path = videoDirectory,
-                    introName = INTRO_VID,
-                    outroName = OUTRO_VID,
-                    totalVidLength = TOTAL_VID_LENGTH,
-                    maxClipLength = MAX_CLIP_LENGTH,
-                    minClipLength = MIN_CLIP_LENGTH,
-                    outputFile = outputFile,
-                    videoDirectory = videoDirectory,
-                    description_meta= "")
-    print("Made Compilation!")
+
+    if mode == "M":
+        makeCompilation_or_not = input("[Q] Use existing compilation(Check name)(Y/n)")
+        if makeCompilation_or_not == "n":
+            print(f"[+] using existing File {outputFile}")
+        else:
+            print("[+] Making Compilation...")
+            makeCompilation(path = videoDirectory,
+                            introName = INTRO_VID,
+                            outroName = OUTRO_VID,
+                            totalVidLength = TOTAL_VID_LENGTH,
+                            maxClipLength = MAX_CLIP_LENGTH,
+                            minClipLength = MIN_CLIP_LENGTH,
+                            outputFile = outputFile,
+                            videoDirectory = videoDirectory,
+                            description_meta= "")
+            print("[+] Made Compilation!")
+    else:
+        print("[+] Making Compilation...")
+        makeCompilation(path = videoDirectory,
+                        introName = INTRO_VID,
+                        outroName = OUTRO_VID,
+                        totalVidLength = TOTAL_VID_LENGTH,
+                        maxClipLength = MAX_CLIP_LENGTH,
+                        minClipLength = MIN_CLIP_LENGTH,
+                        outputFile = outputFile,
+                        videoDirectory = videoDirectory,
+                        description_meta= "")
+        print("[+] Made Compilation!")
 
     # added video metaData(profile, video_url, Caption) within make_compilation script
+    #description += make_compilation.description_meta
 
     description += """
     Welcome to my Channel, where I search for the best trending videos, or videos people have forgotten about, and put them all in one video. I upload 2-3 times a week to keep video quality high. I always ask for permission to share videos that I find!
@@ -192,10 +211,10 @@ new video every day :)
 """
 
     #disclaimer
-    description += "----------------------------------------------------------------------------------------------------------------"
+    description += "\n----------------------------------------------------------------------------------------------------------------"
 
     # tags
-    description += """
+    description += """\n
 In this video you will watch Extremely Funny memes, dankest, funny af, offensive memes, vine videos, meme compilation, dank meme compilation, Funny videos, Memes, Unexpected videos, Reddit Memes, Perfectly Cut Screams Memes, Watch People Die Inside Memes, videos I found on reddit, Try not to laugh videos, Totally Random, Cursed Memes, Cute and Funny Animals, Cute and Funny Dogs, Cute and Funny Cats,  Funny Vines, Anime Memes, Cartoon Memes, Fails Memes, SpongeBob Memes, Spiderman Memes, Super Mario Memes, Dwayne "The Rock" Johnson Memes, Gaming Memes, Among Us "Sus" Memes, Disney Memes, Nintendo Memes, Wii Sports Memes, Mickey Mouse Memes, Star Wars Memes, Adventure Time Memes, Twitch Streamer Memes, Family Guy Memes, GTA Memes, Bowling Memes, Soccer Football Memes, Fortnite Memes, Music Memes, Avengers Memes, Michael Jackson Memes, Pokemon Memes, Windows Error Memes, Thanos Memes, Zoom Memes, Winnie The Pooh Memes, McDonald's Memes, Monkey Memes, Twitter Memes, Will Smith Memes, School Memes, Halloween Memes, Phineas and Ferb Memes, Mom Memes, Holy Memes, Amazon Echo Memes, Gorillaz Memes
 
 Memes that are approved by school
@@ -215,36 +234,36 @@ The Best Of The Internet
 
     with open("description.txt", 'a+') as dfile:
         dfile.write(description)
-        description += dfile.read()
+        description = dfile.read()
 
-    print(description)
+    print("[+]", description)
 
     tags += "Extremely Funny memes, dankest, funny af, offensive memes, vine videos, meme compilation, dank meme compilation, Funny videos, Memes, Unexpected videos, Reddit Memes"
 
     # Step 3: Upload to Youtube
     
     def upload_to_youtube():
-        print("Uploading to Youtube...")
+        print("[+] Uploading to Youtube...")
         uploadYtvid(VIDEO_FILE_NAME=outputFile,
                     title=title,
                     description=description,
                     googleAPI=googleAPI)
-        print("Uploaded To Youtube!")
+        print("[+] Uploaded To Youtube!")
     
     if mode =="A":
         upload_to_youtube()
-        print(f"tags used: {tags}")
+        print(f"[+] tags used: {tags}")
     elif mode =="M":
-        proceed_to_upload = input("Upload to YouTube Y/n:")
+        proceed_to_upload = input("[Q] Upload to YouTube Y/n:")
         if proceed_to_upload != "n":
             upload_to_youtube()
-            print(f"tags used: {tags}")
+            print(f"[+] tags used: {tags}")
         else:
-            print("Video not uploaded to YouTube")
+            print("[+] Video not uploaded to YouTube")
     
     # Step 4: Cleanup
     def cleanup():
-      print("Removing temp files!")
+      print("[-] Removing temp files!")
       # Delete all files made:
       #   Folder videoDirectory
       shutil.rmtree(videoDirectory, ignore_errors=True)
@@ -252,17 +271,17 @@ The Best Of The Internet
       try:
           os.remove(outputFile)
       except OSError as e:  ## if failed, report it back to the user ##
-          print ("Error: %s - %s." % (e.filename, e.strerror))
+          print ("[E] Error: %s - %s." % (e.filename, e.strerror))
       print("Removed temp files!")
     
     if mode == "A":
       cleanup()
     elif mode == "M":
-      keep_files = input("Do you wanna keep temp files?(Y/n)").strip()
+      keep_files = input("[Q] Do you wanna keep temp files?(Y/n)").strip()
       if keep_files == "n":
         cleanup()
       else:
-        print("files are not deleted")
+        print("[-] files are not deleted")
 
 def attemptRoutine():
     while(1):
@@ -270,7 +289,7 @@ def attemptRoutine():
             routine(title, description, tags)
             break
         except OSError as err:
-            print("Routine Failed on " + "OS error: {0}".format(err))
+            print("[e] Routine Failed on " + "OS error: {0}".format(err))
             time.sleep(60*60)
 
 #attemptRoutine()
