@@ -22,7 +22,7 @@ Code to run a fully automated youtube that can scrape content, edit a compilatio
 
 
 
-##Features😶‍🌫️ - 
+## Features😶‍🌫️ - 
 
     1. Interactive  Auto/Manual mode
     2. Makes Compilation (Intro & Outro)
