@@ -22,7 +22,7 @@ Code to run a fully automated youtube that can scrape content, edit a compilatio
 
 
 
-## Features😶‍🌫️ - 
+## Features😶‍🌫️
 
     1. Interactive  Auto/Manual mode
     2. Makes Compilation (Intro & Outro)
@@ -30,7 +30,7 @@ Code to run a fully automated youtube that can scrape content, edit a compilatio
     4. Auto TimeStamps & Credits (Username & Caption from Video)
     5. Edit description.txt when in manual mode
 
-# Quick Start
+# Quick Start🐿️
 
     git clone https://github.com/sam5epi0l/BotTuber.git
     cd BotTuber
@@ -39,14 +39,14 @@ Code to run a fully automated youtube that can scrape content, edit a compilatio
     pip3 install -r requirements.txt
     python3 botTuber.py
 
-# Usage
+# Usage📄
 
     python3 botTuber.py -i # interactive mode
     python3 botTuber.py -a # Full automation
     python3 botTuber.py -m # manual mode
     python3 botTuber.py -h # help menu
 
-# Instructions
+# Instructions✅
 
 1. [Download](https://github.com/sam5epi0l/BotTuber.git) the Github Repository
 
@@ -72,8 +72,28 @@ Download your OATH file and name it as "googleAPI.json" in your project folder.
 
 11. Enjoy your fully automated youtube channel! :) Note that for uploading public videos, you have to complete an audit for the Youtube API. See the note in the [Google Documentation](https://developers.google.com/youtube/v3/docs/videos/insert). Without this, you can only post private videos, but they approve everyone. Have fun!
 
+## Contributors ✨
 
-####    Author Socials
+Thanks goes to these wonderful people who have improved the code and documentation to help this project grow. ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/sam5epi0l"><img src="https://avatars.githubusercontent.com/u/68191144?v=4?s=100" width="100px;" alt=""/><br /><sub><b>sam-sepiol</b></sub></a><br /><a href="#content-sam5epi0l" title="Content">🖋</a></td>
+    <td align="center"><a href="https://github.com/nathan-149"><img src="https://avatars.githubusercontent.com/u/5115108?v=4?s=100" width="100px;" alt=""/><br /><sub><b>nathan Ang</b></sub></a><br /><a href="#content-nathan-Ang" title="Content">🖋</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind are welcome!
+
+## Socials
 
 * [YouTube_Channel](https://youtube.com/c/pwnos)
 * [Patreon](https://www.patreon.com/pwnOS)
@@ -82,6 +102,3 @@ Download your OATH file and name it as "googleAPI.json" in your project folder.
 * [GitHub](https://github.com/sam5epi0l)
 * [TryHackMe](https://tryhackme.com/signup?referrer=sam.sepiol)
 * [Reddit](https://www.reddit.com/r/pwn05/)
-
-
-[![sam5epi0l/BotTuber - GitHub](https://gh-card.dev/repos/sam5epi0l/BotTuber.png?fullname=)](https://github.com/sam5epi0l/BotTuber)
