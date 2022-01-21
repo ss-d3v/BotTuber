@@ -1,9 +1,9 @@
 # Fully Automated Youtube Channel
 
 ```
-▒█▀▀█ █▀▀█ ▀▀█▀▀ ▀▀█▀▀ █░░█ █▀▀▄ █▀▀ █▀▀█ 
-▒█▀▀▄ █░░█ ░░█░░ ░▒█░░ █░░█ █▀▀▄ █▀▀ █▄▄▀ 
-▒█▄▄█ ▀▀▀▀ ░░▀░░ ░▒█░░ ░▀▀▀ ▀▀▀░ ▀▀▀ ▀░▀▀
+░█▀▀█ █▀▀█ ▀▀█▀▀ ▀▀█▀▀ █──█ █▀▀▄ █▀▀ █▀▀█ 
+░█▀▀▄ █──█ ──█── ─░█── █──█ █▀▀▄ █▀▀ █▄▄▀ 
+░█▄▄█ ▀▀▀▀ ──▀── ─░█── ─▀▀▀ ▀▀▀─ ▀▀▀ ▀─▀▀
 🄵🅄🄻🄻 🅈🄾🅄🅃🅄🄱🄴 🄲🄷🄰🄽🄽🄴🄻 🄰🅄🅃🄾🄼🄰🅃🄸🄾🄽 🅂🅄🄸🅃🄴
 ```
 
@@ -11,12 +11,20 @@
 [![GitHub forks](https://img.shields.io/github/forks/sam5epi0l/BotTuber?color=brightgreen&style=for-the-badge)](https://github.com/sam5epi0l/BotTuber/network)
 [![GitHub stars](https://img.shields.io/github/stars/sam5epi0l/BotTuber?color=blue&style=for-the-badge)](https://github.com/sam5epi0l/BotTuber/stargazers)
 [![GitHub license](https://img.shields.io/github/license/sam5epi0l/BotTuber?color=lightgrey&style=for-the-badge)](https://github.com/sam5epi0l/BotTuber/blob/master/LICENSE)
-
+<img align="right" width="450" src="https://gh-card.dev/repos/sam5epi0l/BotTuber.png?fullname=" alt="git status" />
 [![Twitter](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2Fsam5epi0l?style=for-the-badge)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fsam5epi0l%2FBotTuber)
 [![YouTube](https://img.shields.io/badge/videoTutorial-BotTuber-red)](https://youtu.be/BbPErvcqXyw)
 
 
-Code to run a fully automated youtube that can scrape content, edit a compilation, and upload to youtube daily. \
+Code to run a fully automated youtube that can scrape content, edit a compilation, and upload to youtube daily.
+
+##Features😶‍🌫️ - 
+
+    1. Interactive  Auto/Manual mode
+    2. Makes Compilation (Intro & Outro)
+    3. Auto Title, Description & Tags 
+    4. Auto TimeStamps & Credits (Username & Caption from Video)
+    5. Edit description.txt when in manual mode
 
 # Quick Start
 
