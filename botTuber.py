@@ -14,6 +14,7 @@ from google.oauth2.credentials import Credentials
 import config
 import json
 import sys
+from pyffmpeg import FFmpeg
 
 
 print("""
@@ -28,6 +29,7 @@ LinkedIn - https://linkedin.com/in/sam-sepi0l/
 Twitter - https://twitter.com/sam5epi0l
 Quora - https://pwnos.quora.com/
 Patreon - https://www.patreon.com/pwnOS
+Buymeacoffee - https://www.buymeacoffee.com/sam5epi0l
 """)
 
 if sys.argv[-1].upper() == "-A":
@@ -58,7 +60,7 @@ else:
   """)
   exit()
 
-os.system("touch description.txt") #make description file
+
 num_to_month = {
     1: "Jan",
     2: "Feb",
@@ -96,9 +98,11 @@ elif mode == "A":
 
 videoDirectory = "./DankMemes_" + num_to_month[now.month].upper() + "_" + str(now.year) + "_V" + str(now.day) + "/"
 outputFile = "./" + num_to_month[now.month].upper() + "_" + str(now.year) + "_v" + str(now.day) + ".mp4"
+os.system(f"touch {videoDirectory}description.txt") #make description file
 
-INTRO_VID = '' # SET AS '' IF YOU DONT HAVE ONE
-OUTRO_VID = ''
+INTRO_VID = 'intro.mp4' # SET AS '' IF YOU DONT HAVE ONE
+OUTRO_VID = 'outro.mp4'
+WATER_MARK = 'BotTuber.png'
 TOTAL_VID_LENGTH = 13*60
 MAX_CLIP_LENGTH = 19
 MIN_CLIP_LENGTH = 5
@@ -155,25 +159,45 @@ def routine(title, description, tags):
     description += """Enjoy some of the funniest videos on the internet! 
 Why spend hours searching for funny videos that make you laugh when you can get some of the best memes here!
 
+This Video is made using BotTuber tool which scrape videos from Instagram, make compilation and upload to YouTube with Auto Title, Description & Tags with creadits to instagram account owners
+
+Try it YourSelf - GitHub Repositry - https://github.com/sam5epi0l/BotTuber
+
+        ▒█▀▀█ █▀▀█ ▀▀█▀▀ ▀▀█▀▀ █░░█ █▀▀▄ █▀▀ █▀▀█ 
+        ▒█▀▀▄ █░░█ ░░█░░ ░▒█░░ █░░█ █▀▀▄ █▀▀ █▄▄▀ 
+        ▒█▄▄█ ▀▀▀▀ ░░▀░░ ░▒█░░ ░▀▀▀ ▀▀▀░ ▀▀▀ ▀░▀▀
+        🄵🅄🄻🄻 🅈🄾🅄🅃🅄🄱🄴 🄲🄷🄰🄽🄽🄴🄻 🄰🅄🅃🄾🄼🄰🅃🄸🄾🄽 🅂🅄🄸🅃🄴
+
+YouTube Channel - https://youtube.com/c/pwnos
+GitHub - https://github.com/sam5epi0l/
+LinkedIn - https://linkedin.com/in/sam-sepi0l/
+Twitter - https://twitter.com/sam5epi0l
+Quora - https://pwnos.quora.com/
+Patreon - https://www.patreon.com/pwnOS
+Buymeacoffee - https://www.buymeacoffee.com/sam5epi0l
+medium - https://medium.com/@sam5epi0l
+reddit - https://reddit.com/pwnOS
+
 In this video, I show you the best Dank Video Memes on the internet😁😂😂.
 Links To Sources & Credit to owners⬇️:
 
 """
     
-    with open("description.txt", 'a') as dfile:
+    with open(f"{videoDirectory}description.txt", 'a') as dfile:
         dfile.write(description)
 
     # Step 2: Make Compilation
 
     if mode == "M":
-        makeCompilation_or_not = input("[Q] Use existing compilation(Check name)(Y/n)")
-        if makeCompilation_or_not == "n":
+        makeCompilation_or_not = input(f"[Q] Use existing compilation i.e, {outputFile}(y/N)").strip()
+        if makeCompilation_or_not.lower() == "y":
             print(f"[+] using existing File {outputFile}")
         else:
             print("[+] Making Compilation...")
             makeCompilation(path = videoDirectory,
                             introName = INTRO_VID,
                             outroName = OUTRO_VID,
+                            wmark = WATER_MARK,
                             totalVidLength = TOTAL_VID_LENGTH,
                             maxClipLength = MAX_CLIP_LENGTH,
                             minClipLength = MIN_CLIP_LENGTH,
@@ -186,6 +210,7 @@ Links To Sources & Credit to owners⬇️:
         makeCompilation(path = videoDirectory,
                         introName = INTRO_VID,
                         outroName = OUTRO_VID,
+                        wmark = WATER_MARK,
                         totalVidLength = TOTAL_VID_LENGTH,
                         maxClipLength = MAX_CLIP_LENGTH,
                         minClipLength = MIN_CLIP_LENGTH,
@@ -202,8 +227,14 @@ Links To Sources & Credit to owners⬇️:
 If you enjoyed this video, watch my other videos as well
 
 
-Click here to subscribe today:
+subscribe today - https://youtube.com/c/pwnOS
 ►►►Follow me!
+GitHub - https://github.com/sam5epi0l/
+LinkedIn - https://linkedin.com/in/sam-sepi0l/
+Twitter - https://twitter.com/sam5epi0l
+Quora - https://pwnos.quora.com/
+medium - https://medium.com/@sam5epi0l
+reddit - https://reddit.com/pwnOS
 new video every day :)
 
 #️⃣clips featured are used with permission from original creators
@@ -229,10 +260,10 @@ The Best Of The Internet
     description += "\n\nCopyright Disclaimer, Under Section 107 of the Copyright Act 1976, allowance is made for 'fair use' for purposes such as criticism, comment, news reporting, teaching, scholarship, and research. Fair use is a use permitted by copyright statute that might otherwise be infringing. Non-profit, educational or personal use tips the balance in favor of fair use.\n\n"
 
     # Hashtags
-    description += "#memes #dankmemes #compilation #funny #funnyvideos \n\n"
-    description += "#memes #dankmemes #compilation #funny #funnyvideos #shorts #TikTok #randomvideos "
+    description += "#memes #dankmemes #compilation #funny #funnyvideos #BotTuber \n\n"
+    description += "#memes #dankmemes #compilation #funny #funnyvideos #shorts #TikTok #randomvideos #BotTuber "
 
-    with open("description.txt", 'a+') as dfile:
+    with open(f"{videoDirectory}description.txt", 'a+') as dfile:
         dfile.write(description)
         description = dfile.read()
 
@@ -272,7 +303,7 @@ The Best Of The Internet
           os.remove(outputFile)
       except OSError as e:  ## if failed, report it back to the user ##
           print ("[E] Error: %s - %s." % (e.filename, e.strerror))
-      print("Removed temp files!")
+      print("[i] Removed temp files!")
     
     if mode == "A":
       cleanup()
