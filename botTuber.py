@@ -265,8 +265,9 @@ The Best Of The Internet
 
     with open(f"{videoDirectory}description.txt", 'a+') as dfile:
         dfile.write(description)
-        description = dfile.read()
 
+    with open(f"{videoDirectory}description.txt", 'r') as rfile:
+        description = rfile.read()
     print("[+]", description)
 
     tags += "Extremely Funny memes, dankest, funny af, offensive memes, vine videos, meme compilation, dank meme compilation, Funny videos, Memes, Unexpected videos, Reddit Memes"
