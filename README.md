@@ -12,7 +12,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/sam5epi0l/BotTuber?color=blue&style=for-the-badge)](https://github.com/sam5epi0l/BotTuber/stargazers)
 [![GitHub license](https://img.shields.io/github/license/sam5epi0l/BotTuber?color=lightgrey&style=for-the-badge)](https://github.com/sam5epi0l/BotTuber/blob/master/LICENSE)
 <img align="right" width="450" src="https://gh-card.dev/repos/sam5epi0l/BotTuber.png?fullname=" alt="git status" />
-
+<img align="right" width="150" src="https://raw.githubusercontent.com/sam5epi0l/BotTuber/master/BotTuber.png" alt="BotTuber LOGO" />
 [![Twitter](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2Fsam5epi0l?style=for-the-badge)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fsam5epi0l%2FBotTuber)
 [![YouTube](https://img.shields.io/badge/videoTutorial-BotTuber-red)](https://youtu.be/BbPErvcqXyw)
 
@@ -22,13 +22,17 @@ Code to run a fully automated youtube that can scrape content, edit a compilatio
 
 
 
-## Features😶‍🌫️
+
+
+
+# Features😶‍🌫️
 
     1. Interactive  Auto/Manual mode
     2. Makes Compilation (Intro & Outro)
     3. Auto Title, Description & Tags 
     4. Auto TimeStamps & Credits (Username & Caption from Video)
     5. Edit description.txt when in manual mode
+    6. Add Watermark to final Video
 
 # Quick Start🐿️
 
