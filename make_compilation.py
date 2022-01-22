@@ -6,7 +6,10 @@ import random
 import shutil 
 from collections import defaultdict
 import json
+from pyffmpeg import FFmpeg
 
+
+ff = FFmpeg()
 VideoFileClip.resize = resize
 
 def extractAcc(filepath):
@@ -22,6 +25,7 @@ def extractAcc(filepath):
 def makeCompilation(path = "./",
                     introName = '',
                     outroName = '',
+                    wmark = '',
                     totalVidLength = 10,
                     maxClipLength = 20,
                     minClipLength = 5,
@@ -53,12 +57,12 @@ def makeCompilation(path = "./",
                 continue
 
             # Destination path
-            print(filePath)
+            print("[i] ", filePath)
             clip = VideoFileClip(filePath)
             clip = clip.resize(width=1920)
             clip = clip.resize(height=1080)
             duration = clip.duration
-            print(fileName + " " + str(duration) + " Added")
+            print("[i] " + fileName + " " + str(duration) + " Added")
 
             # add_video in min&max range or ignore errors
             def add_video(duration):
@@ -67,7 +71,7 @@ def makeCompilation(path = "./",
                 duration += clip.duration
 
 
-            print(duration, seenLengths, downVideos)
+            print("[i] ", duration, seenLengths, downVideos)
 
             if modeAM == "A":
                 add_video(duration)
@@ -75,7 +79,7 @@ def makeCompilation(path = "./",
                 if duration <= maxClipLength and duration >= minClipLength:
                     add_video(duration)
                 else:
-                    ignore_error = input("Do you want to ignore Errors in min max Total Video Length?(Y/n)").strip()
+                    ignore_error = input("[Q] Do you want to ignore Errors in min max Total Video Length?(Y/n)").strip()
                     if ignore_error != "n":
                         pass
                     else:
@@ -108,12 +112,12 @@ def makeCompilation(path = "./",
 
                 description_meta = video_source_meta[f"TimeStamps{k}"] + video_source_meta[f"profile{k}"] + video_source_meta[f"vido_url{k}"] + video_source_meta[f"Caption{k}"] + '\n\n'
 
-    print(description_meta)
+    print("[i] ", description_meta)
 
-    with open("description.txt", 'a') as dfile:
+    with open(f"{videoDirectory}description.txt", 'a') as dfile:
         dfile.write(description_meta)
 
-    print("Total Length: " + str(duration))
+    print("[i] Total Length: " + str(duration))
 
     # Create videos
     for clip in downVideos:
@@ -129,19 +133,34 @@ def makeCompilation(path = "./",
         outroVid = VideoFileClip("./" + outroName)
         videos.append(outroVid)
     
-    # Used Moviepy lib
+    # Used Moviepy
     finalClip = concatenate_videoclips(videos, method="compose")
 
     audio_path = "/tmp/temoaudiofile.m4a"
 
     # Create compilation
     finalClip.write_videofile(outputFile, threads=8, temp_audiofile=audio_path, remove_temp=True, codec="libx264", audio_codec="aac")
+    def watrmrk():
+        print("[i] Adding Watermark")
+        os.rename(outputFile, f"{outputFile}.tmp")
+        ff.options(f"-i {outputFile}.tmp -i {wmark} -filter_complex overlay=1500:10 {outputFile}")
+        os.remove(f"{outputFile}.tmp")
+        print("[i] Watermark added")
+    if modeAM == "M":
+        add_waterMark = input(f"[Q] Do you want to add watermark {wmark}(Y/n):").strip()
+        if add_waterMark.lower() == "n":
+            print("[i] No watermark added")
+        else:
+            watrmrk()
+    else:
+        watrmrk()
 
 
 if __name__ == "__main__":
     makeCompilation(path = "/home/kali/Documents/YOUTUBE/AutomatedChannel/Videos/Memes/",
                     introName = "intro_vid.mp4",
-                    outroName = '',
+                    outroName = 'outro.mp4',
+                    wmark = 'BotTuber.png',
                     totalVidLength = 10*60,
                     maxClipLength = 20,
                     outputFile = "outputseq.mp4",
