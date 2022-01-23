@@ -94,10 +94,9 @@ def makeCompilation(path = "./",
 
                 acc = extractAcc(clip.filename)
 
-                # Fix error in TimeStamps
-                duration_in_min = str(duration).split(".")
-                #duration_in_min.pop()
-                video_source_meta[f"TimeStamps{k}"] = "00:" + str(duration_in_min[0]) + " : @" + acc + "\n"
+                # Fix error in TimeStamps Manually
+                duration_in_min = str(datetime.timedelta(seconds=duration)
+                video_source_meta[f"TimeStamps{k}"] = str(duration_in_min) + " : @" + acc + "\n"
 
                 video_source_meta[f"profile{k}"] = "Instagram profile:" + "  instagram.com/" + acc +'\n'
                     
