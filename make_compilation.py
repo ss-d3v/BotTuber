@@ -21,6 +21,21 @@ def extractAcc(filepath):
         return ""
 
 
+# generateTimeRange converts float seconds to a range of form @MM:SS
+def generateTimeRange(duration, clipDuration):
+    preHour = int(duration / 60)
+    preMin = int(duration % 60)
+    preTime = str(preHour // 10) + str(preHour % 10) + ":" + str(preMin // 10) + str(preMin % 10)
+
+    duration += clipDuration
+    postHour = int(duration / 60)
+    postMin = int(duration % 60)
+    postTime = str(postHour // 10) + str(postHour % 10) + ":" + str(postMin // 10) + str(postMin % 10)
+
+    #return "@" + preTime + " - " + "@" + postTime
+    return "@" + preTime
+
+
 # makeCompilation takes videos in a folder and creates a compilation with max length totalVidLength
 def makeCompilation(path = "./",
                     introName = '',
@@ -45,8 +60,8 @@ def makeCompilation(path = "./",
     if introName != '':
         introVid = VideoFileClip("./" + introName)
         videos.append(introVid)
+        timeStamp = generateTimeRange(duration, introVid.duration)
         duration += introVid.duration
-
 
     for fileName in os.listdir(path):
         filePath = join(path, fileName)
@@ -94,9 +109,8 @@ def makeCompilation(path = "./",
 
                 acc = extractAcc(clip.filename)
 
-                # Fix error in TimeStamps Manually
-                duration_in_min = str(datetime.timedelta(seconds=duration)
-                video_source_meta[f"TimeStamps{k}"] = str(duration_in_min) + " : @" + acc + "\n"
+                timeStamp = generateTimeRange((duration - clip.duration), clip.duration)
+                video_source_meta[f"TimeStamps{k}"] = timeStamp + " : @" + acc + "\n"
 
                 video_source_meta[f"profile{k}"] = "Instagram profile:" + "  instagram.com/" + acc +'\n'
                     
