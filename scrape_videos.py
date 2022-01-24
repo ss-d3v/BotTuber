@@ -26,14 +26,14 @@ def scrapeVideos(username = "",
 
     for profile in following:
         acc = profile.username
-        looter = ProfileLooter(acc, videos_only=True, dump_json=True, template="{id}-{username}-{width}-{height}")
-        if not looter.logged_in():
-            looter.login(username, password)
-        print("[+]Scraping From Account: " + acc)
-
         # Scrap videos from this account or not
 
         def scrape_videos_fn():
+            looter = ProfileLooter(acc, videos_only=True, dump_json=True, template="{id}-{username}-{width}-{height}")
+            if not looter.logged_in():
+                looter.login(username, password)
+            print("[+]Scraping From Account: " + acc)
+
             try:
                 # videos downloaded
                 numDowloaded = looter.download(output_folder, media_count=30, timeframe=timeframe)
