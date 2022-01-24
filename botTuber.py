@@ -299,6 +299,9 @@ The Best Of The Internet
       # Delete all files made:
       #   Folder videoDirectory
       shutil.rmtree(videoDirectory, ignore_errors=True)
+      # remove instalooter cache to remove error
+      instalooterDirectory = "~/.cache/instalooter"
+      shutil.rmtree(instalooterDirectory, ignore_errors=True)
       #   File outputFile
       try:
           os.remove(outputFile)
