@@ -49,6 +49,7 @@ def scrapeVideos(username = "",
             scrap_or_Skip_video = input(f"[Q]Do you want to scrape from {acc}'s profile?(Y/n/q):").strip().lower()
             if scrap_or_Skip_video == "n":
                 print("[+]Skiped Scraping")
+                continue
             if scrap_or_Skip_video == "q":
                 print("[+]Exit Scrapping Loop")
                 break
