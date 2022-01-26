@@ -263,10 +263,10 @@ The Best Of The Internet
     description += "#memes #dankmemes #compilation #funny #funnyvideos #BotTuber \n\n"
     description += "#memes #dankmemes #compilation #funny #funnyvideos #shorts #TikTok #randomvideos #BotTuber "
 
-    with open(f"{videoDirectory}description.txt", 'a+') as dfile:
+    with open(f"{videoDirectory}description.txt", 'a+', encoding="utf-8") as dfile:
         dfile.write(description)
 
-    with open(f"{videoDirectory}description.txt", 'r') as rfile:
+    with open(f"{videoDirectory}description.txt", 'r', encoding="utf-8") as rfile:
         description = rfile.read()
     print("[+]", description)
 
