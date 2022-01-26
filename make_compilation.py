@@ -127,7 +127,7 @@ def makeCompilation(path = "./",
 
     print("[i] ", description_meta)
 
-    with open(f"{videoDirectory}description.txt", 'a') as dfile:
+    with open(f"{videoDirectory}description.txt", 'a', encoding="utf-8") as dfile:
         dfile.write(description_meta)
 
     print("[i] Total Length: " + str(duration))
