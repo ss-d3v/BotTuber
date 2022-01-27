@@ -155,6 +155,7 @@ def routine(title, description, tags):
                   days=1)
     print("[+] Scraped Videos!")
     
+    os.system(f"touch {videoDirectory}description.txt") #make description file
     # intro into description
     description += """Enjoy some of the funniest videos on the internet! 
 Why spend hours searching for funny videos that make you laugh when you can get some of the best memes here!
