@@ -184,7 +184,7 @@ Links To Sources & Credit to owners⬇️:
 
 """
     
-    with open(f"{videoDirectory}description.txt", 'a') as dfile:
+    with open(f"{videoDirectory}description.txt", 'a+', encoding="utf-8") as dfile:
         dfile.write(description)
 
     # Step 2: Make Compilation
