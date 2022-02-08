@@ -1,3 +1,5 @@
+#### Graphql error in instalooter not been resolved yet!
+
 # Fully Automated Youtube Channel
 
 ```
@@ -78,7 +80,7 @@ Download your OATH file and name it as "googleAPI.json" in your project folder.
 
 ## Contributors ✨
 
-Thanks goes to these wonderful people who have improved the code and documentation to help this project grow. ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+Thanks goes to these wonderful people who have improved the code and documentation to help this project grow. :
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
@@ -90,16 +92,14 @@ Thanks goes to these wonderful people who have improved the code and documentati
   </tr>
 </table>
 
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
 
-<!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind are welcome!
 
 ## Socials
 
 * [YouTube_Channel](https://youtube.com/c/pwnos)
+* [Buy Me A Coffee](https://www.buymeacoffee.com/sam5epi0l)
 * [Patreon](https://www.patreon.com/pwnOS)
 * [LinkedIn](https://linkedin.com/in/sam-sepi0l/)
 * [Quora](https://pwnos.quora.com/)
