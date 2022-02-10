@@ -5,6 +5,7 @@ def uploadYtvid(VIDEO_FILE_NAME='',
                 title='Intro Video!',
                 description=':) ',
                 tags=[],
+                modeAM = "A",
                 googleAPI=None):
     
     now = datetime.datetime.now()
@@ -32,12 +33,20 @@ def uploadYtvid(VIDEO_FILE_NAME='',
         media_body=mediaFile
     ).execute()
 
-    """
-    googleAPI.thumbnails().set(
-        videoId=response_upload.get('id'),
-        media_body=MediaFileUpload('thumbnail.png')
-    ).execute()
-    """
+    def thumbnail_upload():
+        googleAPI.thumbnails().set(
+            videoId=response_upload.get('id'),
+            media_body=MediaFileUpload('thumbnail.png')
+        ).execute()
+    
+    if modeAM == "A":
+        thumbnail_upload()
+    elif modeAM == "M":
+        wanna_thum = input("[Q]     Do you wanna upload thumbnail.png?(y/N):").strip()
+        if wanna_thum.lower() == "y":
+            thumbnail_upload()
+        else:
+            print("[i]      No Custom thumbnail uploaded.")
 
     print("Upload Successful!")
 
