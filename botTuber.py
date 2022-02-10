@@ -280,6 +280,7 @@ The Best Of The Internet
         uploadYtvid(VIDEO_FILE_NAME=outputFile,
                     title=title,
                     description=description,
+                    modeAM=mode,
                     googleAPI=googleAPI)
         print("[+] Uploaded To Youtube!")
     
